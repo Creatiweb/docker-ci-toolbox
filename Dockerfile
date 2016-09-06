@@ -20,14 +20,17 @@ RUN apk add --update --no-cache \
 
 # Install AWS-CLI
 RUN pip install --upgrade \
-      pip \
-      awscli
+    pip \
+    awscli
 
 # Install Chef
 RUN gem install chef
 
 # Install Berkshelf
 RUN USE_SYSTEM_GECODE=1 gem install berkshelf
+
+# Install Chef Testing tools
+RUN gem install foodcritic rubocop
 
 # Clean
 RUN gem sources -c
