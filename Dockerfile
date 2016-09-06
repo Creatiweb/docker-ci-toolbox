@@ -11,6 +11,7 @@ RUN apk add --update --no-cache \
     ruby \
     ruby-dev \
     ruby-io-console \
+    zlib-dev \
     openssh \
     jq \
     groff \
