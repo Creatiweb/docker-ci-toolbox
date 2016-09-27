@@ -35,3 +35,5 @@ RUN gem install rake foodcritic rubocop
 
 # Clean
 RUN gem sources -c
+
+COPY scripts/* /usr/local/bin/
