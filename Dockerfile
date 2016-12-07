@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM docker:1.12
 MAINTAINER Fabio Todaro <fbregist@gmail.com>
 
 # Install dependencies
