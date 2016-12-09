@@ -22,6 +22,9 @@ AWS CLI to deploy on AWS (OpsWorks, ECR, ECS)
 ### Docker
 DinD to build your images and push them directly on your favorite registry
 
+#### Custom Scripts
+  - `docker-tools [load|store|build|publish|publish-aws]`
+
 ### Chef
 Chef tools to compile and test cookbooks.
 #### Tools

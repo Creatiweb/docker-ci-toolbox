@@ -1,0 +1,35 @@
+#!/bin/sh
+
+case "$1" in
+    load)
+        if [[ -f $2 ]]; then
+            echo "Loading cached layers"
+            docker load < $2
+            # Removing the archive (> 1GB!) so it will not be sent
+            # to the docker build context
+            rm $2
+        fi
+        ;;
+    store)
+        echo "Caching layers"
+        docker save $2 $(docker history -q $2 | grep -v "<missing>") > $3
+        ;;
+    build)
+        docker build -t $2 .
+        ;;
+    publish)
+        docker login --username gitlab-ci-token --password $CI_BUILD_TOKEN registry.gitlab.com
+        docker push $2
+        docker logout
+        ;;
+    publish-aws)
+        docker tag $2 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR_NAME:$3
+        eval $(aws ecr get-login --region $AWS_REGION)
+        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR_NAME:$3
+        docker logout
+        ;;
+    *)
+        echo "Usage: $0 [load|store|build|publish|publish-aws]"
+        exit 1
+        ;;
+esac
