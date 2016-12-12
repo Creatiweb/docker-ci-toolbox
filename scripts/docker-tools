@@ -18,7 +18,7 @@ case "$1" in
         docker build -t $2 .
         ;;
     publish)
-        docker login --username gitlab-ci-token --password $CI_BUILD_TOKEN registry.gitlab.com
+        docker login --username $DOCKER_REG_USER --password $DOCKER_REG_PASSWORD $DOCKER_REG_SERVER
         docker push $2
         docker logout
         ;;
@@ -26,7 +26,7 @@ case "$1" in
         docker tag $2 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR_NAME:$3
         eval $(aws ecr get-login --region $AWS_REGION)
         docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR_NAME:$3
-        docker logout
+        docker logout https://$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
         ;;
     *)
         echo "Usage: $0 [load|store|build|publish|publish-aws]"
