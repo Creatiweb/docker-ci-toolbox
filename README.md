@@ -17,7 +17,7 @@ AWS CLI to deploy on AWS (OpsWorks, ECR, ECS)
   - AWS_SECRET_ACCESS_KEY
 
 #### Custom Scripts
-  - `deploy-app [region] [stack-id] [application-id]`
+  - `opsworks-deploy [region] [stack-id] [application-id]`
   - `ecs-deploy usage`
 
 ### Docker
@@ -44,7 +44,7 @@ Publish an image to AWS ECR with tag AWS-TAG
 
 Requires:
  - AWS_ACCOUNT_ID (Account ID)
- - AWS_REGION (Region name `eu-west-1`)
+ - AWS_DEFAULT_REGION (Region name `eu-west-1`)
  - AWS_ECR_NAME (Repository name)
  - AWS_ACCESS_KEY_ID
  - AWS_SECRET_ACCESS_KEY
