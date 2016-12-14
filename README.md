@@ -18,6 +18,7 @@ AWS CLI to deploy on AWS (OpsWorks, ECR, ECS)
 
 #### Custom Scripts
   - `deploy-app [region] [stack-id] [application-id]`
+  - `ecs-deploy usage`
 
 ### Docker
 DinD to build your images and push them directly on your favorite registry

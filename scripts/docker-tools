@@ -23,10 +23,10 @@ case "$1" in
         docker logout
         ;;
     publish-aws)
-        docker tag $2 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR_NAME:$3
-        eval $(aws ecr get-login --region $AWS_REGION)
-        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR_NAME:$3
-        docker logout https://$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        docker tag $2 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_ECR_NAME:$3
+        eval $(aws ecr get-login --region $AWS_DEFAULT_REGION)
+        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_ECR_NAME:$3
+        docker logout https://$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
         ;;
     *)
         echo "Usage: $0 [load|store|build|publish|publish-aws]"
