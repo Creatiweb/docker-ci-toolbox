@@ -33,6 +33,7 @@ function usage() {
         -t | --timeout          Default is 90s. Script monitors ECS Service for new task definition to be running.
         -e | --tag-env-var      Get image tag name from environment variable. If provided this will override value specified in image name argument.
         --max-definitions       Number of Task Definition Revisions to persist before deregistering oldest revisions.
+        --kill-task             Kill old task to help new one spawn.
         -v | --verbose          Verbose output
 
     Requirements:
@@ -87,6 +88,7 @@ IMAGE=false
 MIN=false
 MAX=false
 TIMEOUT=90
+KILL_TASK=false
 VERBOSE=false
 TAGVAR=false
 AWS_CLI=$(which aws)
