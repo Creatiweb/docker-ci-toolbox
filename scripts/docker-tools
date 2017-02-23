@@ -14,9 +14,6 @@ case "$1" in
         echo "Caching layers"
         docker save $2 $(docker history -q $2 | grep -v "<missing>") > $3
         ;;
-    build)
-        docker build -t $2 .
-        ;;
     publish)
         docker login --username $DOCKER_REG_USER --password $DOCKER_REG_PASSWORD $DOCKER_REG_SERVER
         docker push $2

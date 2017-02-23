@@ -29,8 +29,6 @@ DinD to build your images and push them directly on your favorite registry
 Load a tar file containing a docker image created by `docker-tools store`
 ##### `docker-tools store IMAGE [imagename.tar]`
 Save IMAGE to a tar file
-##### `docker-tools build name:tag`
-Build a image with name:tag format in the current directory
 ##### `docker-tools publish IMAGE`
 Publish an image to a registry
 
