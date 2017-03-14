@@ -1,4 +1,4 @@
-FROM docker:1.13
+FROM docker:17
 MAINTAINER Fabio Todaro <fbregist@gmail.com>
 
 # Install dependencies
