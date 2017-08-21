@@ -31,7 +31,7 @@ RUN gem install chef
 RUN USE_SYSTEM_GECODE=1 gem install berkshelf
 
 # Install Chef Testing tools
-RUN gem install rake foodcritic rubocop
+RUN gem install rake foodcritic cookstyle
 
 # Clean
 RUN gem sources -c

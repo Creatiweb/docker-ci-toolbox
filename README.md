@@ -50,5 +50,5 @@ Requires:
 ### Chef
 Chef tools to compile and test cookbooks.
 #### Tools
-  - rubocop
+  - cookstyle
   - foodcritic
