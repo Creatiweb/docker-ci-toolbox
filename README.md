@@ -4,11 +4,13 @@ This container comes with everything needed to:
 - package a cookbook and load it on AWS S3
 - launch app deploy on AWS OpsWorks
 - build and push Docker images on DockerHub or AWS ECR
+- use Google Cloud Platform
 
 ## What's included
  - AWS CLI
  - Docker
  - Chef
+ - GCloud
 
 ### AWS CLI
 AWS CLI to deploy on AWS (OpsWorks, ECR, ECS)
@@ -52,3 +54,6 @@ Chef tools to compile and test cookbooks.
 #### Tools
   - cookstyle
   - foodcritic
+
+### GCloud
+Google Cloud Platform SDK
